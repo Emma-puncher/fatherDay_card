@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>父親節卡片！</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #9aa8e6; /* 藍紫色背景，或你想用的顏色 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .img_container {
+      position: relative;
+      width: 90%;
+      max-width: 740px;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .btns {
+      position: absolute;
+      bottom: 7%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .btn {
+        background-color: rgb(73, 73, 73);
+        color: white;
+        border: none;
+        border-radius: 3px;
+        padding: 5px 10px;
+        margin-left: 9px;
+        cursor: pointer;
+        transition: opacity 0.3s;
+    }
+
+    .btn:hover {
+        opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+    <div class="img_container">
+        <img id="cardImage" src="background_img/IMG_1502.PNG" alt="父親節卡片" />
+        <div class="btns">
+            <button class="btn" onclick="lastImage()">last</button>
+            <button class="btn" id="next_btn" onclick="nextImage()">next</button>
+        </div>
+    </div>
+
+  <script>
+    const images = [
+        "background_img/IMG_1502.PNG",
+        "background_img/IMG_1503.PNG",
+        "background_img/IMG_1504.PNG",
+        "background_img/IMG_1499.PNG",
+        "background_img/IMG_1500.PNG",
+        "background_img/IMG_1501.PNG",
+        "background_img/IMG_1506.PNG",
+        "background_img/IMG_1508.PNG",
+        "background_img/IMG_1509.PNG",
+        "background_img/IMG_1510.PNG",
+        "background_img/IMG_1514.PNG",
+        "background_img/IMG_1515.PNG"
+    ];
+
+    let currentIndex = 0;
+    let currentIndex1 = 0;
+
+    function nextImage() {
+      currentIndex++;
+      if (currentIndex >= images.length) {
+        currentIndex = 0; // 重新開始，或你可以設成停住
+      }
+      document.getElementById("cardImage").src = images[currentIndex];
+    }
+
+    function lastImage() {
+      currentIndex--;
+      if (currentIndex < 0) {
+        currentIndex = 11; // 重新開始，或你可以設成停住
+      }
+      document.getElementById("cardImage").src = images[currentIndex];
+    }
+  </script>
+</body>
+</html>
